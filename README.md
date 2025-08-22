@@ -1,9 +1,10 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : 19/08/25</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
+### NAME : PREETHI A K
+### REG NO : 212223230156
 ## AIM:
 
 To perform Data preprocessing in a data set downloaded from Kaggle
@@ -37,11 +38,47 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd                  
+from sklearn.preprocessing import MinMaxScaler 
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv("Churn_Modelling.csv")
+print(df)
+
+x = df.iloc[:, :-1].values
+x
+
+y = df.iloc[:, -1].values
+y
+
+print(df.isnull().sum())
+df.duplicated()
+df.describe()
+
+df = df.drop(['Surname', 'Geography', 'Gender'], axis=1)
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+
+print(x_train)
+print(len(x_train))
+
+print(x_test)
+print(len(x_test))
+
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+<img width="750" height="224" alt="image" src="https://github.com/user-attachments/assets/b5912446-c6af-4b46-8fad-29b4e37ab9ea" />
+<img width="657" height="227" alt="image" src="https://github.com/user-attachments/assets/7c6ef193-ca80-4e31-b6ec-f97e9b13a0cf" />
+<img width="344" height="516" alt="image" src="https://github.com/user-attachments/assets/1f2438a3-1784-43ab-b6bb-d49f8add7d8a" />
+<img width="644" height="230" alt="image" src="https://github.com/user-attachments/assets/2c80bea3-93b5-438b-a023-0ef6d18297ff" />
+<img width="513" height="321" alt="image" src="https://github.com/user-attachments/assets/fc43db7e-3619-4ed5-abc1-d45a45d39ad9" />
+
 
 
 ## RESULT:
